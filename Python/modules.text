@@ -1,0 +1,130 @@
+Here are clean, interview-ready notes on Python modules 👇
+
+📦 Python Modules – Quick Notes
+🔹 What is a Module?
+
+A module is simply a Python file (.py) that contains code like:
+
+functions
+variables
+classes
+
+👉 It helps you organize code and reuse it.
+
+🔹 Example of a Module
+
+math_utils.py
+
+def add(a, b):
+    return a + b
+
+pi = 3.14
+
+main.py
+
+import math_utils
+
+print(math_utils.add(2, 3))   # 5
+print(math_utils.pi)          # 3.14
+🔹 Types of Modules
+1. Built-in Modules
+
+Already available in Python
+
+Examples:
+
+import math
+print(math.sqrt(16))  # 4.0
+
+Other examples:
+
+sys
+os
+datetime
+2. User-defined Modules
+
+Created by you (.py files)
+
+3. Third-party Modules
+
+Installed using pip
+
+pip install requests
+import requests
+🔹 Ways to Import Modules
+1. Normal Import
+import math
+print(math.pi)
+2. Import Specific Things
+from math import sqrt
+print(sqrt(25))
+3. Import with Alias
+import math as m
+print(m.pi)
+4. Import All (Not recommended)
+from math import *
+
+❌ Can cause conflicts
+
+🔹 Module Search Path
+
+Python searches modules in:
+
+Current directory
+Installed libraries
+System paths
+
+Check using:
+
+import sys
+print(sys.path)
+🔹 __name__ Variable
+
+Every module has a special variable:
+
+print(__name__)
+Usage:
+if __name__ == "__main__":
+    print("Run directly")
+
+👉 Helps to:
+
+Run code only when file is executed directly
+Prevent execution when imported
+🔹 Reloading Modules
+import importlib
+import math_utils
+
+importlib.reload(math_utils)
+🔹 Packages (Folder of Modules)
+
+Structure:
+
+my_package/
+    __init__.py
+    module1.py
+    module2.py
+
+Usage:
+
+from my_package import module1
+🔹 Advantages of Modules
+
+✔ Code reusability
+✔ Better organization
+✔ Avoid duplication
+✔ Easier maintenance
+✔ Namespace separation
+
+🔹 Real-life Example
+
+Think of modules like:
+📁 Files in a project
+📦 Packages like folders
+
+🔹 Quick Summary
+Module = .py file
+Import using import
+Types: built-in, user-defined, third-party
+Use __name__ == "__main__" for control
+Packages = collection of modules
