@@ -1,0 +1,119 @@
+🔹 1. What is lambda?
+
+👉 A small anonymous function (no name)
+
+lambda x: x["marks"]
+Takes input → returns value
+Only one expression
+Used for short, inline logic
+🔹 2. Syntax
+lambda arguments: expression
+
+Example:
+
+lambda x: x * 2
+🔹 3. max() with key
+max(iterable, key=function)
+
+👉 key tells Python:
+
+"How to compare elements"
+
+🔹 4. Core Example
+students = [
+    {"name": "A", "marks": 50},
+    {"name": "B", "marks": 80}
+]
+
+topper = max(students, key=lambda x: x["marks"])
+
+✅ Output:
+
+{"name": "B", "marks": 80}
+🔹 5. How it works internally 🔥
+
+Python does:
+
+max_item = students[0]
+
+for item in students:
+    if item["marks"] > max_item["marks"]:
+        max_item = item
+
+👉 So internally:
+
+Loop runs over all elements
+lambda runs for each element
+Compares returned values
+🔹 6. Key Function Flow
+
+For each element:
+
+lambda x: x["marks"]
+
+Transforms:
+
+{"name": "A", "marks": 50} → 50
+{"name": "B", "marks": 80} → 80
+
+Then compares:
+
+50 vs 80 → choose 80
+🔹 7. Important Rules
+
+✅ key function:
+
+Must return a comparable value
+Runs once per element
+
+❌ Avoid:
+
+print() inside lambda (returns None)
+Complex logic
+🔹 8. Common Mistake ❌
+lambda x: print(x)
+
+👉 Wrong because:
+
+Returns None
+No meaningful comparison
+🔹 9. Debugging Trick
+def debug(x):
+    print(x)
+    return x["marks"]
+
+max(students, key=debug)
+🔹 10. Equivalent without lambda
+def get_marks(x):
+    return x["marks"]
+
+max(students, key=get_marks)
+🔹 11. Similar Functions Using key
+min()
+sorted()
+
+Example:
+
+sorted(students, key=lambda x: x["marks"])
+🔹 12. When to Use Lambda
+
+✅ Use when:
+
+Function is short
+Used once
+Improves readability
+
+❌ Avoid when:
+
+Logic is complex
+Needs reuse → use def
+🔹 13. One-Line Summary 🚀
+
+👉
+key=lambda x: x["marks"] means → "compare elements using marks"
+
+If you want next level:
+
+🔥 tricky interview questions on lambda + key
+⚡ time complexity + optimization
+🧠 real Django/backend use cases
